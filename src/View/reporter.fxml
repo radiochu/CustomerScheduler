@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Reporter">
+    <Label layoutX="14.0" layoutY="14.0" text="Reports">
+        <font>
+          <Font name="System Bold" size="14.0" />
+        </font>
+    </Label>
+    <TabPane layoutX="14.0" layoutY="34.0" prefHeight="407.0" prefWidth="687.0" tabClosingPolicy="UNAVAILABLE">
+        <Tab fx:id="typesByMonth" closable="false" onSelectionChanged="#showTypesByMonth" text="Appointment Types by Month">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <TableView fx:id="apptByMonthTV" layoutX="14.0" layoutY="14.0" prefHeight="346.0" prefWidth="666.0">
+                    <columns>
+                        <TableColumn fx:id="monthCol" editable="false" prefWidth="144.0" sortable="false" text="Month" />
+                        <TableColumn fx:id="typeCol" editable="false" prefWidth="316.79998779296875" sortable="false" text="Appointment Type" />
+                        <TableColumn fx:id="totalCol" editable="false" minWidth="0.0" prefWidth="79.2000732421875" sortable="false" text="Total" />
+                    </columns>
+                </TableView>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="scheduleByContact" closable="false" text="Schedule By Contact">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <ComboBox fx:id="contactCB" layoutX="14.0" layoutY="14.0" onAction="#showScheduleByContact" prefWidth="150.0" promptText="Choose Contact" />
+                <TableView fx:id="scheduleTV" layoutX="14.0" layoutY="51.0" prefHeight="309.0" prefWidth="668.0">
+                    <columns>
+                        <TableColumn fx:id="apptIDCol" editable="false" prefWidth="50.39999198913574" sortable="false" text="Appt ID" />
+                        <TableColumn fx:id="apptTitleCol" editable="false" prefWidth="111.19998931884766" sortable="false" text="Title" />
+                        <TableColumn fx:id="apptTypeCol" editable="false" minWidth="0.0" prefWidth="85.60003662109375" sortable="false" text="Type" />
+                        <TableColumn fx:id="apptDescCol" editable="false" maxWidth="286.0" minWidth="0.0" prefWidth="128.800048828125" sortable="false" text="Description" />
+                        <TableColumn fx:id="apptStartCol" editable="false" maxWidth="185.0" minWidth="0.0" prefWidth="119.20004272460938" sortable="false" text="Starts" />
+                        <TableColumn fx:id="apptEndCol" editable="false" maxWidth="180.0" minWidth="0.0" prefWidth="121.59991455078125" sortable="false" text="Ends" />
+                        <TableColumn fx:id="apptCustIDCol" editable="false" maxWidth="57.5999755859375" minWidth="0.0" prefWidth="53.5999755859375" sortable="false" text="Cust ID" />
+                    </columns>
+                </TableView>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="apptsByMonth" closable="false" text="Total Appointments By Month">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <TextArea fx:id="apptByMonthTA" layoutX="177.0" layoutY="14.0" prefHeight="350.0" prefWidth="333.0" />
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+   <Button fx:id="closeButton" layoutX="646.0" layoutY="429.0" mnemonicParsing="false" onAction="#onClose" text="Close" />
+</AnchorPane>
